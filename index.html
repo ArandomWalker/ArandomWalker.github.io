@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hello, Friend</title>
+  <link rel="stylesheet" href="static/base_styles.css" />
+  <link rel="stylesheet" href="static/nav.css" />
+</head>
+<body>
+
+<header>
+  <div class="nav-container">
+    <div class="nav-title">A Random Walk</div>
+    <button class="nav-toggle" onclick="toggleNav()">☰</button>
+    <nav class="nav-links" id="navMenu">
+      <a href="#">Biology Lectures</a>
+      <a href="#">Games</a>
+    </nav>
+  </div>
+</header>
+  <main>
+    <h1>Hello 👋</h1>
+    <p>Welcome to my website</p>
+
+    <section>
+      <h2>Recent Posts</h2>
+      <ul>
+        <li><a href="#">2025-06-27 — Why Minimal Design Matters</a></li>
+        <li><a href="#">2025-06-15 — My CLI Tool Setup</a></li>
+      </ul>
+    </section>
+    
+    
+    <footer>
+      <p>© 2025 Your Name — <a href="mailto:you@example.com">vsf@arandomwalk.xyz</a></p>
+    </footer>
+  </main>
+</body>
+
+<script>
+  function toggleNav() {
+    document.getElementById('navMenu').classList.toggle('show');
+  }
+</script>
+</html>
+
