@@ -1,0 +1,533 @@
+/* ============================================
+   UNIFIED LECTURE NOTES STYLESHEET
+   ============================================ */
+
+/* === Reset & Base Styles === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #000000;
+  color: #e0e0e0;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, sans-serif;
+  line-height: 1.7;
+}
+
+/* === Navigation === */
+nav {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #222;
+}
+
+.nav-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #89dceb;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.logo:hover {
+  opacity: 0.8;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #89dceb;
+}
+
+/* === Container & Layout === */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+/* === Headers === */
+.lecture-header,
+.header {
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid #222;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.lecture-header h1,
+.header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.header h1 {
+  font-size: 3rem;
+}
+
+.lecture-meta,
+.header p {
+  color: #888;
+  font-size: 0.95rem;
+  margin-top: 0.5rem;
+}
+
+.header p {
+  font-size: 1.1rem;
+}
+
+/* === Typography === */
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 1.8rem;
+  color: #89dceb;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+}
+
+h3 {
+  font-size: 1.3rem;
+  color: #a0a0a0;
+  margin-bottom: 0.8rem;
+  margin-top: 1.5rem;
+}
+
+h4 {
+  font-size: 1.1rem;
+  color: #b0b0b0;
+  margin-bottom: 0.6rem;
+  margin-top: 1rem;
+}
+
+p {
+  margin-bottom: 1rem;
+  color: #d0d0d0;
+}
+
+/* === Links === */
+a {
+  color: #89dceb;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+a:hover {
+  border-bottom-color: #89dceb;
+}
+
+/* === Lists === */
+ul,
+ol {
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+  color: #d0d0d0;
+}
+
+/* === Sections === */
+.section {
+  margin-bottom: 3rem;
+}
+
+/* === Code === */
+code {
+  background: #1a1a1a;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-family: "Courier New", "Consolas", monospace;
+  color: #89dceb;
+  font-size: 0.9em;
+}
+
+pre {
+  background: #1a1a1a;
+  padding: 1.5rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  border-left: 4px solid #89dceb;
+}
+
+pre code {
+  background: none;
+  padding: 0;
+  color: #e0e0e0;
+}
+
+/* === Blockquotes === */
+blockquote {
+  background: #0a0a0a;
+  border-left: 4px solid #89dceb;
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  font-style: italic;
+  color: #b0b0b0;
+}
+
+/* === Note Boxes === */
+.note {
+  background: #1a1a0a;
+  border-left: 4px solid #f4c430;
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 4px;
+}
+
+.note-title {
+  font-weight: 700;
+  color: #f4c430;
+  margin-bottom: 0.5rem;
+}
+
+/* === Theorem/Definition Boxes === */
+.theorem,
+.definition {
+  background: #0a0a1a;
+  border: 1px solid #89dceb;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 8px;
+}
+
+.theorem-title,
+.definition-title {
+  font-weight: 700;
+  color: #89dceb;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+/* === Warning/Alert Boxes === */
+.warning {
+  background: #1a0a0a;
+  border-left: 4px solid #ff6b6b;
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 4px;
+}
+
+.warning-title {
+  font-weight: 700;
+  color: #ff6b6b;
+  margin-bottom: 0.5rem;
+}
+
+/* === Tables === */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+}
+
+th,
+td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #222;
+}
+
+th {
+  background: #1a1a1a;
+  color: #89dceb;
+  font-weight: 600;
+}
+
+tr:hover {
+  background: #0a0a0a;
+}
+
+/* === Lecture Grid (for TOC) === */
+.lecture-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.lecture-card {
+  background: #0a0a0a;
+  border: 1px solid #222;
+  border-radius: 12px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: block;
+}
+
+.lecture-card:hover {
+  border-color: #89dceb;
+  transform: translateY(-4px);
+  box-shadow: 0 4px 20px rgba(137, 220, 235, 0.1);
+}
+
+.lecture-number {
+  font-size: 0.9rem;
+  color: #89dceb;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.lecture-title {
+  font-size: 1.5rem;
+  color: #ffffff;
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+}
+
+.lecture-description {
+  color: #888;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.lecture-meta-card {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #1a1a1a;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+/* === Stats Section (for TOC) === */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.stat-card {
+  background: #0a0a0a;
+  border: 1px solid #222;
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #89dceb;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  color: #888;
+  font-size: 0.9rem;
+}
+
+/* === Course Info Section === */
+.course-info {
+  background: #0a0a0a;
+  border: 1px solid #222;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 3rem;
+}
+
+.course-info h2 {
+  margin-top: 0;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.info-label {
+  font-size: 0.85rem;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.info-value {
+  font-size: 1rem;
+  color: #d0d0d0;
+}
+
+/* === Horizontal Rule === */
+hr {
+  border: none;
+  border-top: 1px solid #222;
+  margin: 2rem 0;
+}
+
+/* === Images === */
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+}
+
+/* === Figure/Caption === */
+figure {
+  margin: 1.5rem 0;
+}
+
+figcaption {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #888;
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
+/* === Mobile Responsive === */
+@media (max-width: 768px) {
+  .container {
+    padding: 2rem 1rem;
+  }
+
+  .lecture-header h1,
+  .header h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+  }
+
+  nav {
+    padding: 1rem;
+  }
+
+  .nav-links {
+    gap: 1rem;
+  }
+
+  .nav-links a {
+    font-size: 0.85rem;
+  }
+
+  pre {
+    padding: 1rem;
+    font-size: 0.85rem;
+  }
+
+  .lecture-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .lecture-header h1,
+  .header h1 {
+    font-size: 1.75rem;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  .logo {
+    font-size: 1rem;
+  }
+
+  .stat-number {
+    font-size: 2rem;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* === Print Styles === */
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+
+  nav {
+    display: none;
+  }
+
+  .lecture-card,
+  .theorem,
+  .note,
+  .warning {
+    border: 1px solid #000;
+    page-break-inside: avoid;
+  }
+
+  a {
+    color: #000;
+    text-decoration: underline;
+  }
+}
