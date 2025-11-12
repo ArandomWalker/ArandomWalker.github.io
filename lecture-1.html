@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lecture 1: Introduction to Computer Science</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav>
+      <div class="nav-container">
+        <a href="toc.html" class="logo">← Table of Contents</a>
+        <ul class="nav-links">
+          <li><a href="#intro">Introduction</a></li>
+          <li><a href="#theory">Theory</a></li>
+          <li><a href="#examples">Examples</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+      <!-- Lecture Header -->
+      <div class="lecture-header">
+        <h1>Lecture 1: Introduction to Computer Science</h1>
+        <div class="lecture-meta">
+          Course: CS 101 • Date: November 12, 2025 • Professor: Dr. Smith
+        </div>
+      </div>
+
+      <!-- Introduction Section -->
+      <section class="section" id="intro">
+        <h2>1. Introduction</h2>
+        <p>
+          Computer Science is the study of computation, information, and
+          automation. It encompasses both theoretical studies of algorithms and
+          practical issues of implementing computational systems.
+        </p>
+
+        <div class="note">
+          <div class="note-title">⚠️ Important Note</div>
+          <p>
+            These notes cover fundamental concepts that will be built upon
+            throughout the semester. Make sure you understand each section
+            before moving forward.
+          </p>
+        </div>
+
+        <h3>1.1 Key Topics Covered</h3>
+        <ul>
+          <li>Algorithms and data structures</li>
+          <li>Programming paradigms</li>
+          <li>Computational complexity</li>
+          <li>Software engineering principles</li>
+        </ul>
+      </section>
+
+      <!-- Theory Section -->
+      <section class="section" id="theory">
+        <h2>2. Fundamental Concepts</h2>
+
+        <h3>2.1 What is an Algorithm?</h3>
+        <p>
+          An algorithm is a finite sequence of well-defined instructions to
+          solve a specific problem or perform a computation.
+        </p>
+
+        <div class="theorem">
+          <div class="theorem-title">Definition 2.1 (Algorithm)</div>
+          <p>An algorithm is a step-by-step procedure that:</p>
+          <ol>
+            <li>Takes an input</li>
+            <li>Performs a series of operations</li>
+            <li>Produces an output</li>
+            <li>Terminates after a finite number of steps</li>
+          </ol>
+        </div>
+
+        <h3>2.2 Algorithm Example</h3>
+        <p>
+          Here's a simple algorithm to find the maximum element in an array:
+        </p>
+
+        <pre><code>function findMax(array):
+    if array is empty:
+        return null
+    
+    max = array[0]
+    for each element in array:
+        if element > max:
+            max = element
+    
+    return max</code></pre>
+
+        <h3>2.3 Time Complexity</h3>
+        <p>
+          Time complexity describes how the runtime of an algorithm grows with
+          input size. Common complexities include:
+        </p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Notation</th>
+              <th>Name</th>
+              <th>Example</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>O(1)</code></td>
+              <td>Constant</td>
+              <td>Array access</td>
+            </tr>
+            <tr>
+              <td><code>O(log n)</code></td>
+              <td>Logarithmic</td>
+              <td>Binary search</td>
+            </tr>
+            <tr>
+              <td><code>O(n)</code></td>
+              <td>Linear</td>
+              <td>Linear search</td>
+            </tr>
+            <tr>
+              <td><code>O(n log n)</code></td>
+              <td>Linearithmic</td>
+              <td>Merge sort</td>
+            </tr>
+            <tr>
+              <td><code>O(n²)</code></td>
+              <td>Quadratic</td>
+              <td>Bubble sort</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <blockquote>
+          "The art of programming is the art of organizing complexity." — Edsger
+          W. Dijkstra
+        </blockquote>
+      </section>
+
+      <!-- Examples Section -->
+      <section class="section" id="examples">
+        <h2>3. Practical Examples</h2>
+
+        <h3>3.1 Binary Search Implementation</h3>
+        <p>
+          Binary search is an efficient algorithm for finding an item in a
+          sorted array. It works by repeatedly dividing the search interval in
+          half.
+        </p>
+
+        <pre><code>function binarySearch(array, target):
+    left = 0
+    right = array.length - 1
+    
+    while left <= right:
+        mid = floor((left + right) / 2)
+        
+        if array[mid] == target:
+            return mid
+        else if array[mid] < target:
+            left = mid + 1
+        else:
+            right = mid - 1
+    
+    return -1  // not found</code></pre>
+
+        <h3>3.2 Analysis</h3>
+        <ul>
+          <li><strong>Time Complexity:</strong> O(log n)</li>
+          <li><strong>Space Complexity:</strong> O(1)</li>
+          <li><strong>Prerequisite:</strong> Array must be sorted</li>
+        </ul>
+
+        <div class="note">
+          <div class="note-title">💡 Key Insight</div>
+          <p>
+            Binary search achieves logarithmic time by eliminating half of the
+            remaining elements at each step. This makes it vastly superior to
+            linear search for large datasets.
+          </p>
+        </div>
+      </section>
+
+      <!-- Summary Section -->
+      <section class="section">
+        <h2>4. Summary</h2>
+        <p>In this lecture, we covered:</p>
+        <ol>
+          <li>The definition and importance of algorithms</li>
+          <li>Time complexity and Big O notation</li>
+          <li>Practical implementation of binary search</li>
+          <li>Analysis techniques for algorithm efficiency</li>
+        </ol>
+
+        <h3>Next Lecture</h3>
+        <p>
+          In the next lecture, we'll dive deeper into data structures, starting
+          with arrays, linked lists, and their operations.
+        </p>
+        <p>
+          <a href="lecture-2.html">→ Continue to Lecture 2</a>
+        </p>
+      </section>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lecture 2: Data Structures & Complexity</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav>
+      <div class="nav-container">
+        <a href="toc.html" class="logo">← Table of Contents</a>
+        <ul class="nav-links">
+          <li><a href="#intro">Introduction</a></li>
+          <li><a href="#arrays">Arrays</a></li>
+          <li><a href="#linked-lists">Linked Lists</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+      <!-- Lecture Header -->
+      <div class="lecture-header">
+        <h1>Lecture 2: Data Structures & Complexity</h1>
+        <div class="lecture-meta">
+          Course: CS 101 • Date: November 14, 2025 • Professor: Dr. Smith
+        </div>
+      </div>
+
+      <!-- Introduction Section -->
+      <section class="section" id="intro">
+        <h2>1. Introduction</h2>
+        <p>
+          Data structures are specialized formats for organizing, processing,
+          and storing data. Choosing the right data structure can significantly
+          impact the efficiency of your algorithms.
+        </p>
+
+        <div class="note">
+          <div class="note-title">📚 Prerequisites</div>
+          <p>
+            This lecture builds on concepts from Lecture 1. Make sure you're
+            comfortable with Big O notation and basic algorithm analysis.
+          </p>
+        </div>
+
+        <h3>1.1 Why Data Structures Matter</h3>
+        <ul>
+          <li>Efficient data access and modification</li>
+          <li>Memory optimization</li>
+          <li>Problem-solving foundation</li>
+          <li>Interview preparation</li>
+        </ul>
+      </section>
+
+      <!-- Arrays Section -->
+      <section class="section" id="arrays">
+        <h2>2. Arrays</h2>
+
+        <h3>2.1 Definition</h3>
+        <p>
+          An array is a contiguous block of memory that stores elements of the
+          same type. Each element can be accessed directly using an index.
+        </p>
+
+        <div class="theorem">
+          <div class="theorem-title">Array Properties</div>
+          <ul>
+            <li><strong>Fixed size:</strong> Size is determined at creation</li>
+            <li>
+              <strong>Contiguous memory:</strong> Elements stored sequentially
+            </li>
+            <li>
+              <strong>Random access:</strong> O(1) time to access any element
+            </li>
+            <li>
+              <strong>Index-based:</strong> Elements accessed by position
+              (0-indexed)
+            </li>
+          </ul>
+        </div>
+
+        <h3>2.2 Array Operations</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Operation</th>
+              <th>Time Complexity</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Access</td>
+              <td><code>O(1)</code></td>
+              <td>Direct index lookup</td>
+            </tr>
+            <tr>
+              <td>Search</td>
+              <td><code>O(n)</code></td>
+              <td>Must check each element</td>
+            </tr>
+            <tr>
+              <td>Insert (end)</td>
+              <td><code>O(1)</code></td>
+              <td>If space available</td>
+            </tr>
+            <tr>
+              <td>Insert (middle)</td>
+              <td><code>O(n)</code></td>
+              <td>Must shift elements</td>
+            </tr>
+            <tr>
+              <td>Delete</td>
+              <td><code>O(n)</code></td>
+              <td>Must shift elements</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>2.3 Example: Dynamic Array Implementation</h3>
+        <pre><code>class DynamicArray:
+    def __init__(self):
+        self.capacity = 2
+        self.size = 0
+        self.array = [None] * self.capacity
+    
+    def append(self, element):
+        if self.size == self.capacity:
+            self._resize()
+        
+        self.array[self.size] = element
+        self.size += 1
+    
+    def _resize(self):
+        self.capacity *= 2
+        new_array = [None] * self.capacity
+        for i in range(self.size):
+            new_array[i] = self.array[i]
+        self.array = new_array</code></pre>
+      </section>
+
+      <!-- Linked Lists Section -->
+      <section class="section" id="linked-lists">
+        <h2>3. Linked Lists</h2>
+
+        <h3>3.1 Definition</h3>
+        <p>
+          A linked list is a linear data structure where elements (nodes) are
+          connected via pointers. Each node contains data and a reference to the
+          next node.
+        </p>
+
+        <div class="theorem">
+          <div class="theorem-title">Linked List Properties</div>
+          <ul>
+            <li><strong>Dynamic size:</strong> Can grow or shrink easily</li>
+            <li><strong>Non-contiguous:</strong> Nodes scattered in memory</li>
+            <li><strong>Sequential access:</strong> Must traverse from head</li>
+            <li>
+              <strong>Efficient insertion/deletion:</strong> No shifting
+              required
+            </li>
+          </ul>
+        </div>
+
+        <h3>3.2 Types of Linked Lists</h3>
+        <ul>
+          <li><strong>Singly Linked List:</strong> Each node points to next</li>
+          <li>
+            <strong>Doubly Linked List:</strong> Nodes point to both next and
+            previous
+          </li>
+          <li>
+            <strong>Circular Linked List:</strong> Last node points back to
+            first
+          </li>
+        </ul>
+
+        <h3>3.3 Basic Node Structure</h3>
+        <pre><code>class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+class LinkedList:
+    def __init__(self):
+        self.head = None
+    
+    def insert_at_beginning(self, data):
+        new_node = Node(data)
+        new_node.next = self.head
+        self.head = new_node
+    
+    def search(self, target):
+        current = self.head
+        while current:
+            if current.data == target:
+                return True
+            current = current.next
+        return False</code></pre>
+
+        <h3>3.4 Linked List Operations</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Operation</th>
+              <th>Time Complexity</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Access</td>
+              <td><code>O(n)</code></td>
+              <td>Must traverse from head</td>
+            </tr>
+            <tr>
+              <td>Search</td>
+              <td><code>O(n)</code></td>
+              <td>Linear traversal</td>
+            </tr>
+            <tr>
+              <td>Insert (beginning)</td>
+              <td><code>O(1)</code></td>
+              <td>Just update head</td>
+            </tr>
+            <tr>
+              <td>Insert (end)</td>
+              <td><code>O(n)</code></td>
+              <td>Must traverse to end</td>
+            </tr>
+            <tr>
+              <td>Delete</td>
+              <td><code>O(n)</code></td>
+              <td>Must find node first</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="warning">
+          <div class="warning-title">⚠️ Common Pitfall</div>
+          <p>
+            When deleting a node, make sure to properly update pointers to avoid
+            memory leaks or losing access to the rest of the list!
+          </p>
+        </div>
+      </section>
+
+      <!-- Comparison Section -->
+      <section class="section">
+        <h2>4. Arrays vs Linked Lists</h2>
+
+        <h3>4.1 When to Use Arrays</h3>
+        <ul>
+          <li>Need fast random access to elements</li>
+          <li>Size is known in advance or changes infrequently</li>
+          <li>Memory locality is important (cache-friendly)</li>
+          <li>Implementing stacks or queues with known max size</li>
+        </ul>
+
+        <h3>4.2 When to Use Linked Lists</h3>
+        <ul>
+          <li>Frequent insertions/deletions at beginning</li>
+          <li>Size varies significantly</li>
+          <li>Don't need random access</li>
+          <li>Implementing queues or dynamic data structures</li>
+        </ul>
+
+        <blockquote>
+          "The key to performance is elegance, not battalions of special cases."
+          — Jon Bentley
+        </blockquote>
+      </section>
+
+      <!-- Summary Section -->
+      <section class="section">
+        <h2>5. Summary</h2>
+        <p>In this lecture, we covered:</p>
+        <ol>
+          <li>Arrays: fixed-size, contiguous, O(1) access</li>
+          <li>
+            Linked Lists: dynamic size, non-contiguous, O(1) insertion at head
+          </li>
+          <li>Trade-offs between different data structures</li>
+          <li>When to use each structure effectively</li>
+        </ol>
+
+        <h3>Next Lecture</h3>
+        <p>
+          In the next lecture, we'll explore stacks, queues, and their
+          applications in solving real-world problems.
+        </p>
+        <p>
+          <a href="lecture-1.html">← Back to Lecture 1</a> |
+          <a href="toc.html">Table of Contents</a>
+        </p>
+      </section>
+    </div>
+  </body>
+</html>
+``` --- ## File Structure: ``` your-project/ ├── index.html (main page with
+Vanta dots) ├── toc.html (table of contents) ├── lecture-1.html (first lecture)
+├── lecture-2.html (second lecture) └── styles.css (unified stylesheet)
